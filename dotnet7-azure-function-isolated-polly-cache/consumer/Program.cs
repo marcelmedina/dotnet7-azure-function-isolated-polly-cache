@@ -23,7 +23,7 @@ var host = new HostBuilder()
         var memoryCacheProvider = new MemoryCacheProvider(memoryCache);
 
         var cachePolicy = Policy
-            .CacheAsync<HttpResponseMessage>(memoryCacheProvider, TimeSpan.FromMinutes(5));
+            .CacheAsync<HttpResponseMessage>(memoryCacheProvider, TimeSpan.FromSeconds(30));
 
         services.AddHttpClient<TemperatureHttpClient>()
             .AddPolicyHandler(cachePolicy);
